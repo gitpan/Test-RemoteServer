@@ -7,7 +7,10 @@ Test::RemoteServer - Test routines for remote servers.
 
 =head1 SYNOPSIS
 
-A module to carry out basic tests against remote servers.
+This module allows you to carry out basic tests against remote servers,
+and the following example should make usage clear:
+
+=for example begin
 
    use Test::More         tests => 4;
    use Test::RemoteServer;
@@ -22,6 +25,10 @@ A module to carry out basic tests against remote servers.
    ## Our domain shoudl resolve
    resolve( "example.com", "Our domain is unreachable!" );
 
+=for example end
+
+=cut
+
 =cut
 
 =head1 DESCRIPTION
@@ -30,14 +37,28 @@ C<Test::RemoteServer> allows you to use the C<Test::More> interface
 to carry out basic health-checks against remote systems.
 
 Currently the tests are only those that can be carried out without
-any authentication, or faking of source-address - testing ping responses,
-and that remote ports are open/closed as appropriate.
+any authentication, or faking of source-address.
 
 It would be interesting to be able to test ACLs such that a particular
 source address were able to connect to a host, but another was not.
+
 (i.e. To test that a firewall is adequately protecting access by
 source-IP).  However this kind of source-IP manipulation is not
 generally portable, and has to be ruled out on that basis.
+
+=cut
+
+
+=head1 USEFUL COMPANION MODULES
+
+If your tests are only to be carried out on the localhost you might
+enjoy the L<Test::Server> module.
+
+If you wish to perform more complex DNS tests you should investigate
+the L<Test::DNS> module.
+
+Finally there is the L<Test::Varnish> which will examine the response
+of a remote HTTP-server and determine whether Varnish is being used.
 
 =cut
 
@@ -72,7 +93,7 @@ use Test::Builder;
 use base "Exporter";
 
 our @EXPORT  = qw( ping_ok ping6_ok resolves socket_open socket_closed );
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 
 #
@@ -140,6 +161,9 @@ sub ping6_ok ($$)
 
 Test that a DNS request returns I<something>.
 
+See the L<Test::DNS> module if you wish to validate the actual returned
+results thoroughly.
+
 =end doc
 
 =cut
@@ -152,7 +176,7 @@ sub resolves($$)
     my $ok = 0;
 
     #
-    #  Crreate a resolver object, and fire away a query using it.
+    #  Crreate a resolver object, and fire a query against it.
     #
     my $res   = Net::DNS::Resolver->new;
     my $query = $res->search($HOST);

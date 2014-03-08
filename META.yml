@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Test-RemoteServer
-version:            0.1
+version:            0.2
 abstract:           Test routines for remote servers.
 author:
     - Steve Kemp <steve@steve.org.uk>
@@ -14,6 +14,11 @@ requires:
     Net::DNS:       ~
     Test::Builder:  ~
     Test::More:     ~
+resources:
+    bugtracker:  https://github.com/skx/Test-RemoteServer/issues
+    homepage:    https://github.com/skx/Test-RemoteServer/
+    license:     http://dev.perl.org/licenses/
+    repository:  https://github.com/skx/Test-RemoteServer.git
 no_index:
     directory:
         - t
