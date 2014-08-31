@@ -132,7 +132,7 @@ use base "Exporter";
 
 our @EXPORT =
   qw( ping_ok ping6_ok resolves ssh_auth_enabled ssh_auth_disabled socket_open socket_closed );
-our $VERSION = '0.3';
+our $VERSION = '0.4';
 
 
 #
@@ -266,7 +266,7 @@ For example if you have a webserver you should expect it to be running:
 
 =for example begin
 
-socket_open( "www.example.com", 80, "HTTP should be enabled!" );
+  socket_open( "www.example.com", 80, "HTTP should be enabled!" );
 
 =for example end
 
@@ -309,7 +309,7 @@ present via:
 
 =for example begin
 
-socket_closed( "localhost", 21, "FTP should be disabled!" );
+  socket_closed( "localhost", 21, "FTP should be disabled!" );
 
 =for example end
 
