@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name:               Test-RemoteServer
-version:            0.4
+version:            0.5
 abstract:           Test routines for remote servers.
 author:
     - Steve Kemp <steve@steve.org.uk>
-license:            unknown
+license:            perl_5
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
@@ -18,6 +18,7 @@ resources:
     bugtracker:  https://github.com/skx/Test-RemoteServer/issues
     homepage:    https://github.com/skx/Test-RemoteServer/
     license:     http://dev.perl.org/licenses/
+    Rep_mirror:  http://git.steve.org.uk/cpan/Test--RemoteServer
     repository:  https://github.com/skx/Test-RemoteServer.git
 no_index:
     directory:

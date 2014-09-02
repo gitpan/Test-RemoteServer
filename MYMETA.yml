@@ -1,0 +1,31 @@
+---
+abstract: 'Test routines for remote servers.'
+author:
+  - 'Steve Kemp <steve@steve.org.uk>'
+build_requires:
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+distribution_type: module
+dynamic_config: 0
+generated_by: 'ExtUtils::MakeMaker version 6.57_05'
+license: perl_5
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Test-RemoteServer
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  Net::DNS: ~
+  Test::Builder: ~
+  Test::More: ~
+resources:
+  Rep_mirror: http://git.steve.org.uk/cpan/Test--RemoteServer
+  bugtracker: https://github.com/skx/Test-RemoteServer/issues
+  homepage: https://github.com/skx/Test-RemoteServer/
+  license: http://dev.perl.org/licenses/
+  repository: https://github.com/skx/Test-RemoteServer.git
+version: 0.5
