@@ -4,9 +4,9 @@ use strict;
 use lib './t/lib';
 use ExtUtils::MakeMaker;
 
-my %prereq_pm = ( 'Test::Builder' => 0,
-                  'Test::More'    => 0,
-                  'Net::DNS'      => 0,
+my %prereq_pm = ( 'Test::Builder' => undef,
+                  'Test::More'    => undef,
+                  'Net::DNS'      => undef,
                 );
 
 WriteMakefile(

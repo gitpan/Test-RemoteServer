@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Test-RemoteServer
-version:            0.6
+version:            0.5
 abstract:           Test routines for remote servers.
 author:
     - Steve Kemp <steve@steve.org.uk>
@@ -11,9 +11,9 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Net::DNS:       0
-    Test::Builder:  0
-    Test::More:     0
+    Net::DNS:       ~
+    Test::Builder:  ~
+    Test::More:     ~
 resources:
     bugtracker:  https://github.com/skx/Test-RemoteServer/issues
     homepage:    https://github.com/skx/Test-RemoteServer/

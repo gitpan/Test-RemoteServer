@@ -17,7 +17,7 @@
 #     LICENSE => q[perl_5]
 #     META_MERGE => { resources=>{ repository=>q[https://github.com/skx/Test-RemoteServer.git], homepage=>q[https://github.com/skx/Test-RemoteServer/], bugtracker=>q[https://github.com/skx/Test-RemoteServer/issues], license=>q[http://dev.perl.org/licenses/], Rep_mirror=>q[http://git.steve.org.uk/cpan/Test--RemoteServer] } }
 #     NAME => q[Test::RemoteServer]
-#     PREREQ_PM => { Test::More=>q[0], Net::DNS=>q[0], Test::Builder=>q[0] }
+#     PREREQ_PM => { Test::More=>undef, Net::DNS=>undef, Test::Builder=>undef }
 #     VERSION_FROM => q[lib/Test/RemoteServer.pm]
 
 # --- MakeMaker post_initialize section:
@@ -491,9 +491,9 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    ExtUtils::MakeMaker:  0' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Net::DNS:       0' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Test::Builder:  0' >> META_new.yml
-	$(NOECHO) $(ECHO) '    Test::More:     0' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Net::DNS:       ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Test::Builder:  ~' >> META_new.yml
+	$(NOECHO) $(ECHO) '    Test::More:     ~' >> META_new.yml
 	$(NOECHO) $(ECHO) 'resources:' >> META_new.yml
 	$(NOECHO) $(ECHO) '    bugtracker:  https://github.com/skx/Test-RemoteServer/issues' >> META_new.yml
 	$(NOECHO) $(ECHO) '    homepage:    https://github.com/skx/Test-RemoteServer/' >> META_new.yml
