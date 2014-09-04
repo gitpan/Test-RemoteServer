@@ -28,4 +28,4 @@ resources:
   homepage: https://github.com/skx/Test-RemoteServer/
   license: http://dev.perl.org/licenses/
   repository: https://github.com/skx/Test-RemoteServer.git
-version: 0.7
+version: 0.7.1
