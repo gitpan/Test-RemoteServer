@@ -21,11 +21,10 @@ no_index:
 requires:
   Net::DNS: 0
   Test::Builder: 0
-  Test::More: 0
 resources:
   GitMirror: http://git.steve.org.uk/cpan/Test--RemoteServer
   bugtracker: https://github.com/skx/Test-RemoteServer/issues
   homepage: https://github.com/skx/Test-RemoteServer/
   license: http://dev.perl.org/licenses/
   repository: https://github.com/skx/Test-RemoteServer.git
-version: 0.7.1
+version: 0.7.2
