@@ -1,29 +1,30 @@
-# $Id$
 
 use strict;
-use lib './t/lib';
-use ExtUtils::MakeMaker;
+use warnings;
 
-my %prereq_pm = ( 'Test::Builder' => 0,
-                  'Net::DNS'      => 0,
-                );
+use 5.008;
 
-my %test_pm = (
-               # solely for the test-suite.
-               'Test::More'       => 0,
-               'Test::Strict'     => 0,
-               'Test::Pod'        => 0,
-               'Test::NoTabs'     => 0,
-              );
+use ExtUtils::MakeMaker 6.30;
 
-WriteMakefile(
+
+my %WriteMakefileArgs = (
     NAME         => 'Test::RemoteServer',
     VERSION_FROM => 'lib/Test/RemoteServer.pm',
-    PREREQ_PM    => \%prereq_pm,
-    TEST_REQUIRES => \%test_pm,
-    ABSTRACT     => 'Test routines for remote servers.',
-    AUTHOR       => 'Steve Kemp <steve@steve.org.uk>',
-    LICENSE      => 'perl',
+    PREREQ_PM    => {
+                   'Test::Builder' => 0,
+                   'Net::DNS'      => 0,
+                 },
+
+    TEST_REQUIRES => { 'Test::More'   => 0,
+                       'Test::Strict' => 0,
+                       'Test::Pod'    => 0,
+                       'Test::NoTabs' => 0,
+                     },
+
+      ABSTRACT => 'Test routines for remote servers.',
+    AUTHOR  => 'Steve Kemp <steve@steve.org.uk>',
+    LICENSE => 'perl',
+    MIN_PERL_VERSION => '5.008',
 
     META_MERGE => {
         resources => {
@@ -35,14 +36,30 @@ WriteMakefile(
 
                      },
                   },
-             );
+);
 
 
-package MY;
 
-sub metafile {
-        my $self    = shift;
-        my $meta    = $self->SUPER::metafile_target(@_);
-        my ($extra) = $self->echo('license: perl_5', 'MYMETA.yml', 1);
-        return "$meta\t$extra\n";
+
+
+unless ( eval {ExtUtils::MakeMaker->VERSION(6.56)} )
+{
+    my $br = delete $WriteMakefileArgs{ BUILD_REQUIRES };
+    my $pp = $WriteMakefileArgs{ PREREQ_PM };
+    for my $mod ( keys %$br )
+    {
+        if ( exists $pp->{ $mod } )
+        {
+            $pp->{ $mod } = $br->{ $mod } if $br->{ $mod } > $pp->{ $mod };
+        }
+        else
+        {
+            $pp->{ $mod } = $br->{ $mod };
+        }
+    }
 }
+
+delete $WriteMakefileArgs{ CONFIGURE_REQUIRES }
+  unless eval {ExtUtils::MakeMaker->VERSION(6.52)};
+
+WriteMakefile(%WriteMakefileArgs);

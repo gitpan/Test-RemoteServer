@@ -30,3 +30,7 @@ Revision history for Perl module Test::RemoteServer
 0.7.2 - 5th September 2014
   - Added Test::Strict as a testing-dependency.
   - Added perl license in Makefile.PL
+
+0.7.3 - 7th September 2014
+  - Fixed broken MANIFEST file.
+
